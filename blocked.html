@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Site Blocked - Digital Footprints</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #174b42 0%, #2d7a6b 100%);
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 700px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .blocked-icon {
+        font-size: 70px;
+        margin-bottom: 30px;
+        color: #ff6b6b;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .message {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        opacity: 0.9;
+      }
+
+      .site-info {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 15px 25px;
+        margin: 25px 0;
+      }
+
+      .website-name {
+        color: #ffd93d;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .time-info {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      .time-value {
+        color: #8effcf;
+        font-weight: 500;
+      }
+
+      .footer {
+        margin-top: 40px;
+        font-size: 16px;
+        opacity: 0.7;
+      }
+
+      button {
+        background: #1976d2;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      button:hover {
+        background: #1565c0;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blocked-icon">🚫</div>
+      <h1>Access Blocked</h1>
+      <p class="message" id="reasonMessage">
+        This website has been blocked by Digital Footprints
+      </p>
+
+      <div class="site-info">
+        <p>
+          Blocked site:
+          <span class="website-name" id="blockedSite">website.com</span>
+        </p>
+        <div id="timeInfoContainer" style="display: none">
+          <p class="time-info">
+            Daily limit:
+            <span class="time-value" id="timeLimit">30 minutes</span>
+          </p>
+          <p class="time-info">
+            Time used today:
+            <span class="time-value" id="timeUsed">30 minutes</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Manage your blocked sites in the extension popup</p>
+      </div>
+    </div>
+
+    <script src="blocked.js"></script>
+  </body>
+</html>
